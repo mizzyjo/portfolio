@@ -17,19 +17,6 @@ document.addEventListener("scroll", () => {
 // Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector(".navbar__menu");
 
-const home = document.querySelector("#home");
-const about = document.querySelector("#about");
-const skills = document.querySelector("#skills");
-const myWork = document.querySelector("#work");
-const testimonials = document.querySelector("#testimonials");
-
-const homeContact = document.querySelector(".home__contact");
-const contact = document.querySelector("#contact");
-
-homeContact.addEventListener("click", () => {
-  contact.scrollIntoView({ behavior: "smooth" });
-});
-
 navbarMenu.addEventListener("click", (event) => {
   const target = event.target;
   const link = target.dataset.link;
@@ -37,6 +24,17 @@ navbarMenu.addEventListener("click", (event) => {
     return;
   }
   console.log(event.target.dataset.link);
-  const scrollTo = document.querySelector(link);
-  scrollTo.scrollIntoView({ behavior: "smooth", block: "center" });
+  scrollIntoView(link);
 });
+
+// Handle click on "contact me" button on home
+const homeContactBtn = document.querySelector(".home__contact");
+
+homeContactBtn.addEventListener("click", (event) => {
+  scrollIntoView("#contact");
+});
+
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: "smooth", block: "center" });
+}
