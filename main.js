@@ -57,19 +57,95 @@ arrowUp.addEventListener("click", () => {
   scrollIntoView("#home");
 });
 
-// const arrowUp = document.querySelector(".arrow");
-// const about = document.querySelector("#about");
-// const aboutBottom = about.getBoundingClientRect().bottom / 2;
+// Projects
+const workBtnContainer = document.querySelector(".work__categories");
+const projectContainer = document.querySelector(".work__projects");
+const projects = document.querySelectorAll(".project");
 
-// document.addEventListener("scroll", () => {
-//   const opacityValue = window.scrollY / aboutBottom;
-//   arrowUp.style.opacity = opacityValue;
+workBtnContainer.addEventListener("click", (e) => {
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  console.log(filter);
+  if (filter == null) {
+    return;
+  }
+
+  projectContainer.classList.add("anim-out");
+  // Put in setTimeout this code-block
+  // projects.forEach((project) => {
+  //   if (filter === "*" || filter === project.dataset.type) {
+  //     project.classList.remove("invisible");
+  //   } else {
+  //     project.classList.add("invisible");
+  //   }
+  // });
+
+  setTimeout(() => {
+    projects.forEach((project) => {
+      if (filter === "*" || filter === project.dataset.type) {
+        project.classList.remove("invisible");
+      } else {
+        project.classList.add("invisible");
+      }
+    });
+    projectContainer.classList.remove("anim-out");
+  }, 300);
+
+  // Same as forEach
+  // for(let project of projects){
+
+  // }
+
+  // let project;
+  // for(let i = 0; i < projects.length; i++){
+  //   project = projects[i];
+  // }
+});
+
+// const workBtns = document.querySelector(".work__categories");
+// const workProject = document.querySelector(".work__projects");
+// const projectDescription = document.querySelectorAll(
+//   ".project__description[data-work]"
+// );
+// const unoProject = document.querySelectorAll(".project");
+
+// workBtns.addEventListener("click", (event) => {
+//   const workBtnCategory = event.target.dataset.category;
+//   console.log(`unoprojectlength ${unoProject.length}`);
+
+//   if (workBtnCategory == null) {
+//     return;
+//   } else if (workBtnCategory === "js") {
+//     for (let i = 0; i < unoProject.length; i++) {
+//       if (projectDescription[i].dataset.work != "js") {
+//         unoProject[i].classList.add("unvisible");
+//       } else {
+//         unoProject[i].classList.remove("unvisible");
+//       }
+//     }
+//   } else if (workBtnCategory === "tp") {
+//     for (let i = 0; i < unoProject.length; i++) {
+//       if (projectDescription[i].dataset.work != "tp") {
+//         unoProject[i].classList.add("unvisible");
+//       } else {
+//         unoProject[i].classList.remove("unvisible");
+//       }
+//     }
+//   } else if (workBtnCategory === "react") {
+//     for (let i = 0; i < unoProject.length; i++) {
+//       if (projectDescription[i].dataset.work != "react") {
+//         unoProject[i].classList.add("unvisible");
+//       } else {
+//         unoProject[i].classList.remove("unvisible");
+//       }
+//     }
+//   } else {
+//     for (let i = 0; i < unoProject.length; i++) {
+//       unoProject[i].classList.remove("unvisible");
+//     }
+//   }
 // });
 
-// arrowUp.addEventListener("click", () => {
-//   scrollIntoView("#home");
-// });
-
+// function scrollIntoView
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: "smooth", block: "center" });
