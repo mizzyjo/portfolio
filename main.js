@@ -61,6 +61,7 @@ arrowUp.addEventListener("click", () => {
 const workBtnContainer = document.querySelector(".work__categories");
 const projectContainer = document.querySelector(".work__projects");
 const projects = document.querySelectorAll(".project");
+const categoryBtns = document.querySelectorAll(".category__btn");
 
 workBtnContainer.addEventListener("click", (e) => {
   const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
@@ -69,15 +70,14 @@ workBtnContainer.addEventListener("click", (e) => {
     return;
   }
 
+  // Remove selection from the previous item and select the new one
+  const active = document.querySelector(".category__btn.selected");
+  active.classList.remove("selected");
+  const target =
+    e.target.nodeName === "BUTTON" ? e.target : e.target.parentNode;
+  target.classList.add("selected");
+
   projectContainer.classList.add("anim-out");
-  // Put in setTimeout this code-block
-  // projects.forEach((project) => {
-  //   if (filter === "*" || filter === project.dataset.type) {
-  //     project.classList.remove("invisible");
-  //   } else {
-  //     project.classList.add("invisible");
-  //   }
-  // });
 
   setTimeout(() => {
     projects.forEach((project) => {
@@ -89,61 +89,9 @@ workBtnContainer.addEventListener("click", (e) => {
     });
     projectContainer.classList.remove("anim-out");
   }, 300);
-
-  // Same as forEach
-  // for(let project of projects){
-
-  // }
-
-  // let project;
-  // for(let i = 0; i < projects.length; i++){
-  //   project = projects[i];
-  // }
 });
 
-// const workBtns = document.querySelector(".work__categories");
-// const workProject = document.querySelector(".work__projects");
-// const projectDescription = document.querySelectorAll(
-//   ".project__description[data-work]"
-// );
-// const unoProject = document.querySelectorAll(".project");
-
-// workBtns.addEventListener("click", (event) => {
-//   const workBtnCategory = event.target.dataset.category;
-//   console.log(`unoprojectlength ${unoProject.length}`);
-
-//   if (workBtnCategory == null) {
-//     return;
-//   } else if (workBtnCategory === "js") {
-//     for (let i = 0; i < unoProject.length; i++) {
-//       if (projectDescription[i].dataset.work != "js") {
-//         unoProject[i].classList.add("unvisible");
-//       } else {
-//         unoProject[i].classList.remove("unvisible");
-//       }
-//     }
-//   } else if (workBtnCategory === "tp") {
-//     for (let i = 0; i < unoProject.length; i++) {
-//       if (projectDescription[i].dataset.work != "tp") {
-//         unoProject[i].classList.add("unvisible");
-//       } else {
-//         unoProject[i].classList.remove("unvisible");
-//       }
-//     }
-//   } else if (workBtnCategory === "react") {
-//     for (let i = 0; i < unoProject.length; i++) {
-//       if (projectDescription[i].dataset.work != "react") {
-//         unoProject[i].classList.add("unvisible");
-//       } else {
-//         unoProject[i].classList.remove("unvisible");
-//       }
-//     }
-//   } else {
-//     for (let i = 0; i < unoProject.length; i++) {
-//       unoProject[i].classList.remove("unvisible");
-//     }
-//   }
-// });
+// Make work buttons active
 
 // function scrollIntoView
 function scrollIntoView(selector) {
