@@ -4,6 +4,12 @@
 ## 사용기술
 * Javascript
 
+## 프로젝트를 하며
+* 반응형, 동적 웹사이트를 제작했습니다.
+* Javascript의 배열 API(map, filter 등)을 활용해보았습니다.
+* Flexbox 등 CSS Styling을 연습할 수 있었습니다.
+* Github Desktop 으로 git에 commit과 push를 해보았습니다.
+
 ## 기능 설명
 1. Home, About, Skills, My work, Testimonal, Contact 파트를 구현했습니다.
 2. 스크롤을 내리면 투명한 Navbar 색상이 추가되고 Navbar가 화면 상단에 고정이 됩니다.
