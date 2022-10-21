@@ -8,6 +8,7 @@
 * 반응형, 동적 웹사이트를 제작했습니다.
 * 웹사이트를 Markup 박스로 나누어 만들었습니다.
 * Javascript의 배열 API(map, filter 등)을 활용해보았습니다.
+* 다양한 웹 API들(scrollIntoView, getBoundingClientRect, setTimeout)을 사용해보았습니다.
 * Flexbox, 애니메이션 등 CSS Styling을 연습할 수 있었습니다.
 * Github Desktop 으로 git에 commit과 push를 해보았습니다.
 
